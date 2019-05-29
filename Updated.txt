@@ -1,2 +1,2 @@
 
-mailChimp 1.5.2
+mailChimp 1.5.3
