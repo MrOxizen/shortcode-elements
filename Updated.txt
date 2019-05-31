@@ -1,2 +1,1 @@
-
-mailChimp 1.5.3
+hove effects 1.5.1
