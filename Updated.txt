@@ -1,1 +1,1 @@
-hove effects 1.5.1
+content toggle 1.5.1
