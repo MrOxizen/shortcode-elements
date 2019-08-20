@@ -4,4 +4,4 @@
   Version: 1.5
  */
 
-return array(1.6, 'Dynamic Contents', true);
+return array('1.6.1', 'Dynamic Contents', true);
