@@ -32,6 +32,14 @@ if (!empty($_POST['data-submit']) && $_POST['data-submit'] == 'Save') {
                 . oxi_addons_adm_help_padding_margin_senitize('OxiAddonsLogoShowcase-border-width')
                 . OxiAddonsADMHelpBorderSanitize('OxiAddonsLogoShowcase-border')
                 . oxi_addons_adm_help_padding_margin_senitize('OxiAddonsLogoShowcase-border-redius')
+                . 'OxiAddonsLogoShowcase-text-position |' . sanitize_text_field($_POST['OxiAddonsLogoShowcase-text-position']) . '|'
+                . 'OxiAddonsLogoShowcase-text-align |' . sanitize_text_field($_POST['OxiAddonsLogoShowcase-text-align']) . '|'
+                . '' . OxiAddonsADMHelpItemPerRowsSanitize('OxiAddonsLogoShowcase-hover-height') . ''
+                . oxi_addons_adm_help_padding_margin_senitize('OxiAddonsLogoShowcase-text-padding')
+                . '' . OxiAddonsADMHelpItemPerRowsSanitize('OxiAddonsLogoShowcase-font-size') . ''
+                . 'OxiAddonsLogoShowcase-text-color |' . sanitize_text_field($_POST['OxiAddonsLogoShowcase-text-color']) . '|'
+                . 'OxiAddonsLogoShowcase-text-bg-color |' . sanitize_text_field($_POST['OxiAddonsLogoShowcase-text-bg-color']) . '|'
+                . '' . OxiAddonsADMHelpFontSettingsSanitize('OxiAddonsLogoShowcase-font') . ''
                 . '|';
         
         $data = sanitize_text_field($data);
@@ -45,7 +53,7 @@ if (!empty($_POST['OxiAddonsListFile']) && $_POST['OxiAddonsListFile'] == 'Submi
         $oxilistid = (int) $_POST['oxilistid'];
         $data = '   OxiAddonsLogoShowcase-BG ||#||' . OxiAddonsAdminUrlConvert($_POST['OxiAddonsLogoShowcase-BG']) . '||#||'
                 . ' OxiAddonsLogoShowcase-BGL ||#||' . OxiAddonsAdminUrlConvert($_POST['OxiAddonsLogoShowcase-BGL']) . '||#|| '
-                . ' OxiAddonsLogoShowcase-tooltip-text ||#||' . OxiAddonsAdminUrlConvert($_POST['OxiAddonsLogoShowcase-tooltip-text']) . '||#|| '
+                . ' OxiAddonsLogoShowcase-hover-text ||#||' . OxiAddonsAdminUrlConvert($_POST['OxiAddonsLogoShowcase-hover-text']) . '||#|| '
                 . '  ||#||';
         $data = sanitize_text_field($data);
         if ($oxilistid > 0) {
@@ -175,17 +183,17 @@ echo '</pre>';
                                 <div class="oxi-addons-col-6">
                                     <div class="oxi-addons-content-div">
                                         <div class="oxi-head">
-                                            General 
+                                            General Setting
                                         </div>
 
                                         <div class="oxi-addons-content-div-body">
                                            <?php
-                                           echo oxi_addons_adm_help_Justify_Align('OxiAddonsProductBoxes-B-PSLR', $styledata[198], 'Justify Position', 'Set Banner button Justify Position', 'false', '.oxi-product5-' . $oxiid . ' .oxi-product5-button', 'justify-content');
+                                           echo oxi_addons_adm_help_Justify_Align('OxiAddonsLogoShowcase-text-position', $styledata[198], 'Justify Position', 'Set Banner button Justify Position', 'false', '.oxi-product5-' . $oxiid . ' .oxi-product5-button', 'justify-content');
                                             ?>
                                             <div class=" form-group row">
-                                                <label for="OxiAddonsProductBoxes-B-PSTB" class="col-sm-6 control-label" oxi-addons-tooltip="Set your Button Aling position">Button Align Position</label>
+                                                <label for="OxiAddonsLogoShowcase-text-align" class="col-sm-6 control-label" oxi-addons-tooltip="Set your Button Aling position">Button Align Position</label>
                                                 <div class="col-sm-6 addons-dtm-laptop-lock">
-                                                    <select class="form-control" id="OxiAddonsProductBoxes-B-PSTB" name="OxiAddonsProductBoxes-B-PSTB">
+                                                    <select class="form-control" id="OxiAddonsProductBoxes-B-PSTB" name="OxiAddonsLogoShowcase-text-align">
                                                         <option value='flex-start' <?php selected($styledata[303], 'flex-start'); ?>>Top</option>
                                                         <option value="center" <?php selected($styledata[303], 'center'); ?>>Middle</option>
                                                         <option value='flex-end' <?php selected($styledata[303], 'flex-end'); ?>>Bottom</option>
@@ -194,29 +202,26 @@ echo '</pre>';
                                             </div>
                                             <?php
                                             $NOJS = array(
-                                                array('OxiAddonsProductBoxes-B-PSTB', 'Button Aling position'),
+                                                array('OxiAddonsLogoShowcase-text-position', 'Button Aling position'),
                                             );
                                             echo OxiAddonsADMHelpNoJquery($NOJS);
-                                            echo oxi_addons_adm_help_padding_margin('OxiAddonsProductBoxes-B-P', 200, $styledata, 1, 'Padding', 'Set Banner Button padding', 'true', '.oxi-product5-' . $oxiid . ' .oxi-product5-button-button  ', 'padding');
-                                            
-                                            echo oxi_addons_adm_help_MiniColor('OxiAddonsLogoShowcase-tt-tooltip-color', $styledata[72], '', 'Color', 'Set Your Tooltip Color', 'false', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'color');
-                                            echo oxi_addons_adm_help_MiniColor('OxiAddonsLogoShowcase-tt-tooltip-bg-color', $styledata[74], 'rgba', 'Background Color', 'Set Your Tooltip Background Color', 'false', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'background');
-                                            echo oxi_addons_adm_help_padding_margin('OxiAddonsLogoShowcase-tt-tooltip-padding', 76, $styledata, 1, 'Padding', 'Set Your Tooltip Padding', 'true', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'padding');
-                                            echo oxi_addons_adm_help_padding_margin('OxiAddonsLogoShowcase-tt-tooltip-margin', 92, $styledata, 1, 'Margin', 'Set Your Tooltip Margin', 'true', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'margin');
-                                            echo oxi_addons_adm_help_padding_margin('OxiAddonsLogoShowcase-tt-tooltip-border-radius', 108, $styledata, 1, 'Border Radius', 'Set Your Tooltip Border Radius', 'true', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'border-radius');
-                                            ?>
+                                            echo oxi_addons_adm_help_number_dtm('OxiAddonsLogoShowcase-hover-height', $styledata[124], $styledata[125], $styledata[126], 1, 'Heigth ratio', 'Set your Hover Content Height Ratio', 'true', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'font-size');
+                                            echo oxi_addons_adm_help_padding_margin('OxiAddonsLogoShowcase-text-padding', 200, $styledata, 1, 'Padding', 'Set Banner Button padding', 'true', '.oxi-product5-' . $oxiid . ' .oxi-product5-button-button  ', 'padding');
+                                             ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="oxi-addons-col-6">
                                     <div class="oxi-addons-content-div">
                                         <div class="oxi-head">
-                                            Typography
+                                            Text Setting
                                         </div>
                                         <div class="oxi-addons-content-div-body">
                                             <?php
-                                            echo oxi_addons_adm_help_number_dtm('OxiAddonsLogoShowcase-tt-tooltip-font-size', $styledata[124], $styledata[125], $styledata[126], 1, 'Font Size', 'Set your Tooltip Font Size', 'false', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'font-size');
-                                            echo OxiAddonsADMHelpFontSettings('OxiAddonsLogoShowcase-tt-tooltip-font', 128, $styledata, 'true', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext');
+                                            echo oxi_addons_adm_help_number_dtm('OxiAddonsLogoShowcase-font-size', $styledata[124], $styledata[125], $styledata[126], 1, 'Font Size', 'Set your Tooltip Font Size', 'false', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'font-size');
+                                            echo oxi_addons_adm_help_MiniColor('OxiAddonsLogoShowcase-text-color', $styledata[72], '', 'Color', 'Set Your Tooltip Color', 'false', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'color');
+                                            echo oxi_addons_adm_help_MiniColor('OxiAddonsLogoShowcase-text-bg-color', $styledata[74], 'rgba', 'Background Color', 'Set Your Tooltip Background Color', 'false', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext', 'background');
+                                            echo OxiAddonsADMHelpFontSettings('OxiAddonsLogoShowcase-font', 128, $styledata, 'true', '.oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext');
                                             ?>
                                         </div>
 
@@ -272,7 +277,7 @@ echo '</pre>';
                     <?php
                     echo oxi_addons_adm_help_image_upload('OxiAddonsLogoShowcase-BG', $listitemdata[1], 'Image', 'Set your background Logo Image', 'false');
                     echo oxi_addons_adm_help_textbox('OxiAddonsLogoShowcase-BGL', $listitemdata[3], 'Link', 'Set Logo Showcase Image Link', 'false');
-                    echo oxi_addons_adm_help_textbox('OxiAddonsLogoShowcase-tooltip-text', $listitemdata[5], 'Tooltip Text', 'Set Logo Tooltip Text', 'false');
+                    echo oxi_addons_adm_help_textbox('OxiAddonsLogoShowcase-hover-text', $listitemdata[5], 'Tooltip Text', 'Set Logo Tooltip Text', 'false');
                     ?>
                 </div>
                 <div class="modal-footer">
