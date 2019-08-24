@@ -4,4 +4,4 @@
   Version: 1.7.1
  */
 
-return array(1.6, 'Marketing Elements', true);
+return array('1.6.0', 'Marketing Elements', true);

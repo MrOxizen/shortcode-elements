@@ -109,10 +109,10 @@ $styledata = explode('|', $stylefiles[0]);
 				<form method="post" id="oxi-addons-form-submit">
 					<div class="oxi-addons-style-settings">
 						<div class="oxi-addons-tabs-wrapper">
-                            <ul class="oxi-addons-tabs-ul">
-                                <li ref="#oxi-addons-tabs-1">General Setting</li>
-                                <li  ref="#oxi-addons-tabs-2">Tooltip Setting</li> 
-                            </ul> 
+                                                    <ul class="oxi-addons-tabs-ul">
+                                                        <li ref="#oxi-addons-tabs-1">General Setting</li>
+                                                        <li  ref="#oxi-addons-tabs-2">Tooltip Setting</li> 
+                                                    </ul> 
 							<div class="oxi-addons-tabs-content-tabs" id="oxi-addons-tabs-1">
 								<div class="oxi-addons-col-6">
 									<div class="oxi-addons-content-div">
