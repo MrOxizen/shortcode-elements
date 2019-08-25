@@ -12,13 +12,16 @@ function oxi_logo_showcase_style_6_shortcode($styledata = FALSE, $listdata = FAL
     echo '<div class="oxi-addons-container"> <div class="oxi-addons-row">';
     foreach ($listdata as $value) {
         $data = explode('||#||', $value['files']);
-        $link = '';
+        $link = $text = '';
         if ($data[3] != '') {
+            if ($data[5] != '') {
+                $text = ' <div class="oxi-addons-logo-showcase-hover-text" >
+                        ' . OxiAddonsTextConvert($data[5]) . '
+                        </div>';
+            }
             $link = '<a href="' . OxiAddonsUrlConvert($data[3]) . '" target="' . $styledata[52] . '" class="oxi-addons-logo-showcase-img-' . $oxiid . '">
                         <img src="' . OxiAddonsUrlConvert($data[1]) . '" class="oxi-addons-img">
-                        <div class="oxi-addons-logo-showcase-hover-text" >
-                        asdf
-                        </div>
+                       '.$text.'
                      </a>';
         } elseif ($data[3] == '') {
             $link = '<div class="oxi-addons-logo-showcase-img-' . $oxiid . '"><img src="' . OxiAddonsUrlConvert($data[1]) . '" class="oxi-addons-img"></div>';
@@ -57,14 +60,15 @@ function oxi_logo_showcase_style_6_shortcode($styledata = FALSE, $listdata = FAL
                 width:100%;
                 margin: 0 auto;
                 float: left;
+                overflow: hidden;
                 position: relative;
                 ' . OxiAddonsBoxShadowSanitize($styledata, 54) . ';
                 background: ' . $styledata[60] . ';
-                      border-style: ' . $styledata[86] . ';
+                 border-style: ' . $styledata[86] . ';
                 border-color: ' . $styledata[87] . ';
                 border-width: ' . OxiAddonsPaddingMarginSanitize($styledata, 70) . '; 
                 border-radius: ' . OxiAddonsPaddingMarginSanitize($styledata, 89) . ';
-                transition: all 0.5s;
+                 transition: all 0.5s;
             }
             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ':hover{
                 background: ' . $styledata[62] . ';
@@ -85,18 +89,26 @@ function oxi_logo_showcase_style_6_shortcode($styledata = FALSE, $listdata = FAL
                 height:100%;  
                 padding:' . OxiAddonsPaddingMarginSanitize($styledata, 15) . ';        
             }
-            .oxi-addons-logo-showcase-hover-text{
+            .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logo-showcase-hover-text{
                 width: 100%;
-                height: 100%;
+                 color: ' . $styledata[109] . ';
+                background: ' . $styledata[111] . ';
+                ' . OxiAddonsFontSettings($styledata, 113) . '
+                font-size: ' . $styledata[105] . 'px;
+                padding: ' . OxiAddonsPaddingMarginSanitize($styledata, 119) . ';
                 position: absolute;       
-                background: red;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                bottom: 0;
-                padding: 10px;
+                bottom : -50%;
+                opacity: 0;
+                transition: all 0.3s;
                }
+             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ':hover .oxi-addons-logo-showcase-hover-text{
+               bottom : 0;
+                transition: all 0.3s;
+                opacity: 1;
+                }  
+
+            
+             
         @media only screen and (min-width : 669px) and (max-width : 993px){
             .oxi-addons-container .oxi-addons-logo-showcase-row-' . $oxiid . '{             
                     padding:' . OxiAddonsPaddingMarginSanitize($styledata, 32) . ';       
@@ -110,6 +122,11 @@ function oxi_logo_showcase_style_6_shortcode($styledata = FALSE, $listdata = FAL
                 .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-img{                
                     padding:' . OxiAddonsPaddingMarginSanitize($styledata, 16) . ';        
                 }
+                .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logo-showcase-hover-text{
+                 font-size: ' . $styledata[106] . 'px;
+                padding: ' . OxiAddonsPaddingMarginSanitize($styledata, 120) . ';
+               
+               }
         }
         @media only screen and (max-width : 668px){
             .oxi-addons-container .oxi-addons-logo-showcase-row-' . $oxiid . '{             
@@ -124,6 +141,11 @@ function oxi_logo_showcase_style_6_shortcode($styledata = FALSE, $listdata = FAL
                 .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-img{                
                     padding:' . OxiAddonsPaddingMarginSanitize($styledata, 17) . ';        
                 }
+                .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logo-showcase-hover-text{
+                 font-size: ' . $styledata[107] . 'px;
+                padding: ' . OxiAddonsPaddingMarginSanitize($styledata, 121) . ';
+               
+               }
         }
            ';
     echo OxiAddonsInlineCSSData($css);

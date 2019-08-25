@@ -47,11 +47,15 @@ function oxi_logo_showcase_style_5_shortcode($styledata = FALSE, $listdata = FAL
     echo '<div class="oxi-addons-container"> <div class="oxi-addons-row">';
     foreach ($listdata as $value) {
         $data = explode('||#||', $value['files']);
-        $link = '';
+        $link = $tooltip = '';
         if ($data[3] != '') {
+             if ($data[5] != '') {
+                 $tooltip = '<span class="oxi-addons-logoshowcase-tooltiptext">' . OxiAddonsTextConvert($data[5]) . '</span>
+                     ';
+             }
             $link = '<a href="' . OxiAddonsUrlConvert($data[3]) . '" target="' . $styledata[52] . '" class="oxi-addons-logo-showcase-img-' . $oxiid . '">
                         <img src="' . OxiAddonsUrlConvert($data[1]) . '" class="oxi-addons-img">
-                            <span class="oxi-addons-logoshowcase-tooltiptext">' . OxiAddonsTextConvert($data[5]) . '</span>
+                            '.$tooltip.'
                      </a>';
         } elseif ($data[3] == '') {
             $link = '<div class="oxi-addons-logo-showcase-img-' . $oxiid . '"><img src="' . OxiAddonsUrlConvert($data[1]) . '" class="oxi-addons-img"></div>';
@@ -91,6 +95,7 @@ function oxi_logo_showcase_style_5_shortcode($styledata = FALSE, $listdata = FAL
                 width:100%;
                 margin: 0 auto;
                 float: left;
+                overflow: hidden;
                 position: relative;
                 ' . OxiAddonsBoxShadowSanitize($styledata, 54) . ';
                 background: ' . $styledata[60] . ';
