@@ -95,7 +95,7 @@ function oxi_logo_showcase_style_5_shortcode($styledata = FALSE, $listdata = FAL
                 width:100%;
                 margin: 0 auto;
                 float: left;
-                overflow: hidden;
+                
                 position: relative;
                 ' . OxiAddonsBoxShadowSanitize($styledata, 54) . ';
                 background: ' . $styledata[60] . ';
