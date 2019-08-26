@@ -135,11 +135,11 @@ function oxi_logo_showcase_style_5_shortcode($styledata = FALSE, $listdata = FAL
             font-size:  ' . $styledata[124] . 'px;
             ' . OxiAddonsFontSettings($styledata, 128) . '
             '.$pos.'
-            opacity: 0;
+            visibility: hidden;
             } 
             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ':hover .oxi-addons-logoshowcase-tooltiptext{
-               opacity: 1;
-            }
+               visibility: visible;
+             }
             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext:after{
             content :"";
             position : absolute;
