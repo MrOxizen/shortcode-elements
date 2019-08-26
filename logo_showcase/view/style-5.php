@@ -95,7 +95,6 @@ function oxi_logo_showcase_style_5_shortcode($styledata = FALSE, $listdata = FAL
                 width:100%;
                 margin: 0 auto;
                 float: left;
-                
                 position: relative;
                 ' . OxiAddonsBoxShadowSanitize($styledata, 54) . ';
                 background: ' . $styledata[60] . ';
@@ -103,13 +102,11 @@ function oxi_logo_showcase_style_5_shortcode($styledata = FALSE, $listdata = FAL
                 border-color: ' . $styledata[151] . ';
                 border-width: ' . OxiAddonsPaddingMarginSanitize($styledata, 134) . ';
                 border-radius: ' . OxiAddonsPaddingMarginSanitize($styledata, 153) . ';
-                transition: all 0.5s;
-            }
+                }
             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ':hover{
                 background: ' . $styledata[62] . ';
                 ' . OxiAddonsBoxShadowSanitize($styledata, 64) . ';
-                transition: all 0.5s;
-            }
+             }
             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ':after{
                 display:block;
                 content: "";  
@@ -135,10 +132,10 @@ function oxi_logo_showcase_style_5_shortcode($styledata = FALSE, $listdata = FAL
             font-size:  ' . $styledata[124] . 'px;
             ' . OxiAddonsFontSettings($styledata, 128) . '
             '.$pos.'
-            visibility: hidden;
+            display: none;
             } 
             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ':hover .oxi-addons-logoshowcase-tooltiptext{
-               visibility: visible;
+               display: block;
              }
             .oxi-addons-container .oxi-addons-logo-showcase-img-' . $oxiid . ' .oxi-addons-logoshowcase-tooltiptext:after{
             content :"";
