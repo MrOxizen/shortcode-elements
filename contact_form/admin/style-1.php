@@ -90,6 +90,9 @@ OxiDataAdminStyleNameChange();
 $style = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d ", $oxiid), ARRAY_A);
 $stylefiles = explode('||#||', $style['css']);
 $styledata = explode('|', $stylefiles[0]);
+//echo '<pre>';
+//print_r($styledata);
+//echo '</pre>';
 ?>
 <div class="wrap">    
     <?php echo OxiAddonsAdmAdminMenu($oxitype, '', '', 'yes'); ?>

@@ -303,11 +303,11 @@ function oxi_contact_form_style_1_shortcode($styledata = FALSE, $listdata = FALS
                         transform: translateY(-50%);
                         right: 8px;
                       }
-                    .oxi-alert-validate:hover:before {
+                    .oxi-addons-form-warp-' . $oxiid . ' .oxi-alert-validate:hover:before {
                       visibility: visible;
                       opacity: 1;
                     }
-                    .oxi-addons-form-btn, .oxi-addons-form-btn-warp{
+                    .oxi-addons-form-warp-' . $oxiid . ' .oxi-addons-form-btn, .oxi-addons-form-warp-' . $oxiid . ' .oxi-addons-form-btn-warp{
                         width:100%;
                         float: left;
                         text-align:' . explode(':', $styledata[267])[0] . ';
