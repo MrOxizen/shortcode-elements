@@ -19,15 +19,15 @@ if (!empty($_POST['data-submit']) && $_POST['data-submit'] == 'Save') {
     } else {
         $data = 'oxi-addons-preview-BG |' . sanitize_text_field($_POST['oxi-addons-preview-BG']) . '|'
                 . '' . OxiAddonsADMHelpItemPerRowsSanitize('oxi-addons-item-per-rows') . ''
-                . '' . OxiAddonsBGImageSanitize('oxi-addons-box-icon-bg-or-img') . '|'
-                . ' oxi-addons-box-width-icon |' . sanitize_text_field($_POST['oxi-addons-box-width-icon']) . '|'
+                . '|||||'
+                . '||'
                 . '' . oxi_addons_adm_help_padding_margin_senitize('oxi-addons-box-padding') . ''
                 . '' . oxi_addons_adm_help_padding_margin_senitize('oxi-addons-box-margin') . ''
                 . '' . OxiAddonsADMBoxShadowSanitize('oxi-addons-box-shadow') . ''
                 . ' ' . oxi_addons_adm_help_animation_senitize('oxi-addons-box-animation'). '|'
                 . '' . oxi_addons_adm_help_number_dtm_senitize('oxi-addons-icon-font-size') . ''
                 . ' oxi-addons-icon-color |' . sanitize_hex_color($_POST['oxi-addons-icon-color']) . '|'
-                . ' oxi-addons-icon-bg-color |' . sanitize_hex_color($_POST['oxi-addons-icon-bg-color']) . '|'
+                . '||'
                 . '' . oxi_addons_adm_help_padding_margin_senitize('oxi-addons-icon-padding') . ''
                 . oxi_addons_adm_help_single_size('oxi-addons-box-icon-width')
                 . oxi_addons_adm_help_single_size('oxi-addons-box-icon-height')
@@ -47,8 +47,14 @@ if (!empty($_POST['data-submit']) && $_POST['data-submit'] == 'Save') {
                 . '' . oxi_addons_adm_help_padding_margin_senitize('oxi-addons-box-border-radius') . ''
                 . '' . oxi_addons_adm_help_padding_margin_senitize('oxi-addons-box-border-widht') . ''
                 . '' . OxiAddonsADMHelpBorderSanitize('oxi-addons-box-border-color-and-type') . '|'
-                . oxi_addons_adm_help_single_size('oxi-addons-box-width')
-                . ' oxi-addons-fuad-background-color |' . sanitize_text_field($_POST['oxi-addons-fuad-background-color']) . '|'
+                . oxi_addons_adm_help_single_size('oxi-addons-box-width')                
+                . '||||'
+                . '||||'
+                . '' . OxiAddonsADMBoxShadowSanitize('oxi-addons-box-shadow-hover') . ''
+                . ' oxi-addons-box-mia-background-color |' . sanitize_text_field($_POST['oxi-addons-box-mia-background-color']) . '|'
+                . ' oxi-addons-box-mia-background-color-hover |' . sanitize_text_field($_POST['oxi-addons-box-mia-background-color-hover']) . '|'
+                
+                
                 
                 
                 
@@ -73,7 +79,7 @@ if (!empty($_POST['OxiAddonsListFile']) && $_POST['OxiAddonsListFile'] == 'Submi
         die('You do not have sufficient permissions to access this page.');
     } else {
         $oxilistid = sanitize_textarea_field($_POST['oxilistid']);
-        $data = ' oxi-addons-box-image-icon ||#||' . OxiAddonsAdminUrlConvert($_POST['oxi-addons-box-image-icon']) . '||#|| '
+        $data = '||'
                 .' ||#||oxi-addons-icon-class ||#||' . OxiAddonsAdminFontAwesomeSenitize($_POST['oxi-addons-icon-class']) . '||#|| '
                 . ' oxi-addons-box-heding-tex ||#||' . sanitize_text_field($_POST['oxi-addons-box-heding-tex']) . '||#|| '
                 . ' oxi-addons-box-text-description ||#||' . OxiAddonsAdminUrlConvert($_POST['oxi-addons-box-text-description']) . '||#|| ';
@@ -150,12 +156,21 @@ $styledata = explode('|', $stylefiles[0]);
                                     <div class="oxi-addons-content-div-body">
                                         <?php                                        
                                             echo OxiAddonsADMHelpItemPerRows('oxi-addons-item-per-rows', $styledata, 3, 'false', '.oxi-addons-admin-edit-list');
-                                            echo oxi_addons_adm_help_number_dtm('oxi-addons-box-width', $styledata[224], $styledata[225], $styledata[226], 1, 'Max Width', 'Set your Box Max Width', false, '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'max-width', 'px', 150, 1000);                                            
+                                            echo oxi_addons_adm_help_number_dtm('oxi-addons-box-width', $styledata[224], $styledata[225], $styledata[226], 1, 'Max Width', 'Set your Box Max Width', false, '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'max-width', 'px', '', '');                                            
+                                            echo oxi_addons_adm_help_MiniColor('oxi-addons-box-mia-background-color', $styledata[242], 'rgba', 'Background Color', 'Set your Icon background color', 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'background');                                        
                                             echo oxi_addons_adm_help_padding_margin('oxi-addons-box-border-widht', 204, $styledata, 1, 'Border-width', 'Set Your Content Boxes Border width', 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'border-width');
                                             echo OxiAddonsADMhelpBorder('oxi-addons-box-border-color-and-type', 220, $styledata, 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'border-color');
                                             echo oxi_addons_adm_help_padding_margin('oxi-addons-box-border-radius', 188, $styledata, 1, 'Border Radius', 'Set Your Content Boxes Border Radius', 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'border-radius');
                                             echo oxi_addons_adm_help_padding_margin('oxi-addons-box-padding', 14, $styledata, 1, 'Padding', 'Set your box body padding', 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'padding');
                                             echo oxi_addons_adm_help_padding_margin('oxi-addons-box-margin', 30, $styledata, 1, 'Margin', 'Set your box body margin', 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main-outer', 'margin');
+                                        ?>
+                                    </div>
+                                    <div class="oxi-head">
+                                        Hover Background
+                                    </div>
+                                    <div class="oxi-addons-content-div-body">
+                                        <?php      
+                                            echo oxi_addons_adm_help_MiniColor('oxi-addons-box-mia-background-color-hover', $styledata[244], 'rgba', 'Background Color', 'Set your Icon background color', 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main:hover', 'background');                                        
                                         ?>
                                     </div>
                                 </div>
@@ -166,6 +181,14 @@ $styledata = explode('|', $stylefiles[0]);
                                     <div class="oxi-addons-content-div-body">
                                         <?php
                                             echo OxiAddonsADMhelpBoxShadow('oxi-addons-box-shadow', 46, $styledata, 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main', 'box-shadow');
+                                         ?>
+                                    </div>
+                                    <div class="oxi-head">
+                                       Hover Box Shadow
+                                    </div>
+                                    <div class="oxi-addons-content-div-body">
+                                        <?php
+                                            echo OxiAddonsADMhelpBoxShadow('oxi-addons-box-shadow-hover', 236, $styledata, 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main:hover', 'box-shadow');
                                          ?>
                                     </div>
                                 </div>
@@ -188,8 +211,7 @@ $styledata = explode('|', $stylefiles[0]);
                                     <div class="oxi-addons-content-div-body">
                                         <?php
                                             echo oxi_addons_adm_help_number_dtm('oxi-addons-icon-font-size', $styledata[57], $styledata[58], $styledata[59], '', 'Font Size', 'Set Your Icon Size', 'true', '.oxi-box-wrap-' . $oxiid . ' i', 'font-size');
-                                            echo oxi_addons_adm_help_MiniColor('oxi-addons-icon-color', $styledata[61], '', 'Icon Color', 'Set your Icon color', 'false', '.oxi-box-wrap-' . $oxiid . ' i', 'color');
-                                            echo oxi_addons_adm_help_MiniColor('oxi-addons-fuad-background-color', $styledata[228], 'rgba', 'Background Color', 'Set your Icon background color', 'true', '.oxi-box-wrap-' . $oxiid . ' i', 'background');                                        
+                                            echo oxi_addons_adm_help_MiniColor('oxi-addons-icon-color', $styledata[61], '', 'Icon Color', 'Set your Icon color', 'false', '.oxi-box-wrap-' . $oxiid . ' i', 'color');                                            
                                             echo oxi_addons_adm_help_number_dtm('oxi-addons-box-icon-width', $styledata[81], $styledata[82], $styledata[83], 1, 'Width', 'Set Your Icon Box Width', true, '.oxi-box-wrap-' . $oxiid . ' i', 'width', 'px', '', '');
                                             echo oxi_addons_adm_help_number_dtm('oxi-addons-box-icon-height', $styledata[85], $styledata[86], $styledata[87], 1, 'Height', 'Set Your Icon Box Height', true, '.oxi-box-wrap-' . $oxiid . ' i', 'height', 'px', '', '');
                                             echo oxi_addons_adm_help_Text_Align('oxi-addons-box-icon-align', $styledata[130], 'Icon Align', 'Set Your Icon Align', 'true', '.oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-inner', 'text-align');
@@ -253,7 +275,7 @@ $styledata = explode('|', $stylefiles[0]);
                 echo oxi_addons_list_modal_open();
                 echo oxi_addons_shortcode_namechange($oxiid, $style['name']);
                 echo oxi_addons_shortcode_call($oxitype, $oxiid);
-                echo oxi_addons_list_rearrange('Icon Boxes Rearrange', $listdata, 1, 'image')
+                echo oxi_addons_list_rearrange('Icon Boxes Rearrange', $listdata, 4, '')
                 ?>
             </div>
             <div class="oxi-addons-style-left-preview">
@@ -266,7 +288,7 @@ $styledata = explode('|', $stylefiles[0]);
                     </div>
                 </div>
                 <div class="oxi-addons-preview-data" id="oxi-addons-preview-data">
-                    <?php echo oxi_icon_boxes_style_8_shortcode($style, $listdata, 'admin'); ?>
+                    <?php echo oxi_icon_boxes_style_9_shortcode($style, $listdata, 'admin'); ?>
                 </div>
             </div>
         </div>
@@ -281,11 +303,10 @@ $styledata = explode('|', $stylefiles[0]);
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <?php
-                     echo oxi_addons_adm_help_model_image_upload('oxi-addons-box-image-icon', $listitemdata[1], 'Background Image', 'Set Image', false);
-                     echo oxi_addons_adm_help_textbox('oxi-addons-icon-class', $listitemdata[4], 'Icon Class', 'Set Your Icon Class', 'false');
-                     echo oxi_addons_adm_help_textbox('oxi-addons-box-heding-tex', $listitemdata[6], 'Box Heading', 'Set Your Box Heading', 'false');
-                     echo oxi_addons_adm_help_form_textarea('oxi-addons-box-text-description', $listitemdata[8], 'Info Text', 'Give Your Info text Here', 'false');
+                    <?php                     
+                     echo oxi_addons_adm_help_textbox('oxi-addons-icon-class', $listitemdata[2], 'Icon Class', 'Set Your Icon Class', 'false');
+                     echo oxi_addons_adm_help_textbox('oxi-addons-box-heding-tex', $listitemdata[4], 'Box Heading', 'Set Your Box Heading', 'false');
+                     echo oxi_addons_adm_help_form_textarea('oxi-addons-box-text-description', $listitemdata[6], 'Info Text', 'Give Your Info text Here', 'false');
                     ?>
                 </div>
                 <div class="modal-footer">

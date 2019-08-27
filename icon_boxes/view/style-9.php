@@ -3,7 +3,7 @@
 if (!defined('ABSPATH'))
     exit;
 
-function oxi_icon_boxes_style_8_shortcode($style = FALSE, $listdata = FALSE, $user = 'user') {
+function oxi_icon_boxes_style_9_shortcode($style = FALSE, $listdata = FALSE, $user = 'user') {
 
     $oxiid = $style['id'];
     $stylefiles = explode('||#||', $style['css']);
@@ -29,23 +29,23 @@ function oxi_icon_boxes_style_8_shortcode($style = FALSE, $listdata = FALSE, $us
 //      print_r($oxiid);
 //      echo '</pre>';
         
-        if ($listitemdata[4] != '') {
+        if ($listitemdata[2] != '') {
             $icon_area = '<div class="oxi-addons-icon">
                 <div class="oxi-addons-fuad">
                             <div class="oxi-addons-icon-inner"  ' . OxiAddonsAnimation($styledata, 125) . ' >
-                                ' . oxi_addons_font_awesome($listitemdata[4]) . '
+                                ' . oxi_addons_font_awesome($listitemdata[2]) . '
                             </div>
                 </div>
                           </div>';
         }
-        if ($listitemdata[6] != '') {
+        if ($listitemdata[4] != '') {
             $heading_area = '<div class="oxi-addons-heading">
-                            ' . OxiAddonsTextConvert($listitemdata[6]) . '
+                            ' . OxiAddonsTextConvert($listitemdata[4]) . '
                           </div>';
         }
-        if ($listitemdata[8] != '') {
+        if ($listitemdata[6] != '') {
             $desc_area = '<div class="oxi-addons-desc">
-                            ' . OxiAddonsTextConvert($listitemdata[8]) . '
+                            ' . OxiAddonsTextConvert($listitemdata[6]) . '
                           </div>';
         }
       
@@ -97,7 +97,12 @@ function oxi_icon_boxes_style_8_shortcode($style = FALSE, $listdata = FALSE, $us
                 border-color:' . $styledata[221] . ';
                 max-width: ' . $styledata[224] . 'px;
                 padding: ' . OxiAddonsPaddingMarginSanitize($styledata, 14) . ';
+                background: ' . $styledata[242] . ';
                 margin: auto;
+        }
+        .oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon-main:hover {
+                background: ' . $styledata[244] . ';
+                ' . OxiAddonsBoxShadowSanitize($styledata, 236) . ';
         }
         .oxi-box-wrap-' . $oxiid . ' .oxi-addons-icon {
                 height: auto;
@@ -109,7 +114,6 @@ function oxi_icon_boxes_style_8_shortcode($style = FALSE, $listdata = FALSE, $us
         .oxi-box-wrap-' . $oxiid . ' i {
                 font-size: ' . $styledata[57] . 'px;
                 color: ' . $styledata[61] . ';
-                background: ' . $styledata[228] . ';
                 height: ' . $styledata[85] . 'px;
                 width: ' . $styledata[81] . 'px;
                 border-style:' . $styledata[105] . '; 
